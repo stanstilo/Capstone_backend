@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint",
     "start": "node server.js",
-    "create": "node ./services/db Thing" 
+    "create": "node ./services/db Thing"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,7 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "make-runnable": "^1.3.6",

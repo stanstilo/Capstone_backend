@@ -10,14 +10,12 @@ pool.on('connect', () => {
 });
 
 
-  const Thing = () => {
+  const user = (hash_pass) => {
     const myTable = `CREATE TABLE IF NOT EXISTS
         users(
            id serial PRIMARY KEY,
            email VARCHAR(128) NOT NULL,
-           password VARCHAR(128) NOT NULL,
-           UNIQUE(email)
-           
+           password hash NOT NULL          
         )`;
   
       pool.query(myTable)
@@ -29,7 +27,8 @@ pool.on('connect', () => {
         console.log(err);
         pool.end();
         });
-
+      }
+     
     //SIGNUP
     // const myTable = `CREATE TABLE IF NOT EXISTS
     //     workers(
@@ -42,6 +41,7 @@ pool.on('connect', () => {
     //        job VARCHAR(128) NOT NULL,
     //        dept VARCHAR(128) NOT NULL,
     //        address VARCHAR(128) NOT NULL
+              // UNIQUE(email)
     //     )`;
   
     //   pool.query(myTable)
@@ -76,7 +76,7 @@ pool.on('connect', () => {
         //    console.log(err);
         //    pool.end();
         //  });
-        }
+      
         // pool.on('remove', () => {
         //   console.log('client removed');
         //   process.exit(0);
@@ -85,7 +85,7 @@ pool.on('connect', () => {
 
   //export pool and Thing to be accessible  from any where within the application
   module.exports = {
-    Thing,
+    user,
     pool,
   };
  require('make-runnable') 

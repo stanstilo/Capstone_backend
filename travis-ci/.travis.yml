@@ -4,3 +4,11 @@ node_js:
 cache:
   directories:
     - "node_modules"
+
+  install:
+  - npm install
+  script:
+  - npm run test  
+install:
+  - travis_wait mvn install
+    
